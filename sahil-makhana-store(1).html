@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#176b4d" />
+  <meta
+    name="description"
+    content="SAHIL MAKHANA STORE — Fresh makhana delivered to your door."
+  />
+  <title>SAHIL MAKHANA STORE | Fresh Makhana</title>
+
+  <style>
+    :root {
+      --primary: #176b4d;
+      --primary-dark: #0e5139;
+      --primary-light: #e9f7f0;
+      --accent: #e9a72c;
+      --accent-dark: #c88716;
+      --cream: #fffdf7;
+      --bg: #f6f8f5;
+      --card: #ffffff;
+      --text: #17221d;
+      --muted: #69756f;
+      --border: #e3e9e5;
+      --danger: #c93434;
+      --shadow: 0 8px 28px rgba(20, 52, 39, 0.09);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 30px));
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background:
+        radial-gradient(circle at 90% 20%, rgba(233, 167, 44, 0.18), transparent 25%),
+        linear-gradient(135deg, #0e5139, #176b4d);
+      color: white;
+      padding: 34px 0 40px;
+      overflow: hidden;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 29px;
+    }
+
+    .brand h1 {
+      font-size: clamp(23px, 6vw, 38px);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand p {
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(28px, 8vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 14px;
+      letter-spacing: -1.2px;
+    }
+
+    .hero-copy p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 15px;
+      max-width: 560px;
+    }
+
+    .location {
+      margin-top: 17px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.11);
+      font-size: 13px;
+    }
+
+    /* ================= MAIN ================= */
+
+    main {
+      padding: 28px 0 100px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 17px;
+    }
+
+    .section-heading h2 {
+      font-size: 25px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    /* ================= FILTERS ================= */
+
+    .filters {
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      padding: 2px 1px 15px;
+      scrollbar-width: none;
+    }
+
+    .filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ================= PRODUCTS ================= */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(20, 52, 39, 0.045);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #f0f2ee;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.035);
+    }
+
+    .product-info {
+      padding: 13px;
+    }
+
+    .product-category {
+      display: inline-block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary);
+      background: var(--primary-light);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .product-description {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+      min-height: 31px;
+      margin-bottom: 12px;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .price {
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    .add-btn {
+      border: none;
+      background: var(--primary);
+      color: white;
+      border-radius: 11px;
+      padding: 9px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .add-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .add-btn:active {
+      transform: scale(0.94);
+    }
+
+    .empty-products {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--muted);
+    }
+
+    /* ================= INFO ================= */
+
+    .info-section {
+      margin-top: 40px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .info-section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .info-section p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* ================= FLOATING BUTTONS ================= */
+
+    .floating-buttons {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .whatsapp-btn,
+    .cart-btn {
+      border: none;
+      border-radius: 999px;
+      min-width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+      transition: 0.2s ease;
+    }
+
+    .whatsapp-btn {
+      width: 55px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      font-size: 27px;
+    }
+
+    .cart-btn {
+      background: var(--accent);
+      color: #201703;
+      font-size: 23px;
+      position: relative;
+      padding: 0 16px;
+    }
+
+    .cart-btn:hover,
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .cart-label {
+      font-size: 12px;
+      font-weight: 800;
+      margin-left: 7px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -4px;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: var(--danger);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      border: 2px solid white;
+    }
+
+    /* ================= MODAL ================= */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 25, 18, 0.62);
+      z-index: 100;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      width: 100%;
+      max-height: 94vh;
+      overflow-y: auto;
+      background: var(--cream);
+      border-radius: 22px 22px 0 0;
+      padding: 20px;
+      animation: slideUp 0.25s ease;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 17px;
+    }
+
+    .modal-header h2 {
+      font-size: 22px;
+    }
+
+    .close-btn {
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 50%;
+      background: #edf0ed;
+      font-size: 21px;
+      color: var(--text);
+    }
+
+    /* ================= CART ================= */
+
+    .cart-items {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .cart-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 62px 1fr auto;
+      gap: 11px;
+      align-items: center;
+    }
+
+    .cart-item-image {
+      width: 62px;
+      height: 62px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #f1f2ef;
+    }
+
+    .cart-item-name {
+      font-size: 13px;
+      font-weight: 750;
+      margin-bottom: 3px;
+    }
+
+    .cart-item-price {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .quantity-controls button {
+      width: 27px;
+      height: 27px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: white;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .quantity {
+      min-width: 20px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .cart-item-right {
+      text-align: right;
+    }
+
+    .item-subtotal {
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-size: 13px;
+      margin-bottom: 7px;
+      white-space: nowrap;
+    }
+
+    .remove-btn {
+      border: none;
+      background: transparent;
+      color: var(--danger);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .cart-summary {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed #ccd5cf;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .summary-row.total {
+      color: var(--text);
+      font-size: 21px;
+      font-weight: 850;
+      margin-top: 7px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 800;
+      margin-top: 17px;
+      transition: 0.2s ease;
+    }
+
+    .checkout-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 35px 10px;
+      color: var(--muted);
+    }
+
+    .empty-cart-icon {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+
+    /* ================= CHECKOUT ================= */
+
+    .checkout-section {
+      display: none;
+    }
+
+    .checkout-section.show {
+      display: block;
+    }
+
+    .checkout-note {
+      background: var(--primary-light);
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 12px;
+      color: var(--primary-dark);
+      margin-bottom: 17px;
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 750;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: white;
+      padding: 12px;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+      transition: border 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .form-group textarea {
+      min-height: 85px;
+      resize: vertical;
+    }
+
+    .back-btn {
+      border: none;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 750;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .submit-order-btn {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      background: var(--accent);
+      color: #241a06;
+      font-weight: 850;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .submit-order-btn:hover {
+      background: var(--accent-dark);
+      color: white;
+    }
+
+    .submit-order-btn:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    /* ================= CONFIRMATION ================= */
+
+    .confirmation {
+      display: none;
+      text-align: center;
+      padding: 28px 8px 18px;
+    }
+
+    .confirmation.show {
+      display: block;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 17px;
+      font-size: 35px;
+    }
+
+    .confirmation h2 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .confirmation p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .confirmation-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 11px;
+      text-decoration: none;
+      color: white;
+      background: #25d366;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #10271d;
+      color: rgba(255, 255, 255, 0.72);
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* ================= ANIMATIONS ================= */
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cart-pop {
+      animation: cartPop 0.35s ease;
+    }
+
+    @keyframes cartPop {
+      0% {
+        transform: scale(1);
+      }
+      45% {
+        transform: scale(1.18);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* ================= DESKTOP ================= */
+
+    @media (min-width: 700px) {
+      header {
+        padding: 45px 0 55px;
+      }
+
+      .header-inner {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        align-items: center;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .modal-overlay {
+        align-items: center;
+        padding: 25px;
+      }
+
+      .modal {
+        max-width: 560px;
+        max-height: 90vh;
+        border-radius: 22px;
+        padding: 25px;
+      }
+
+      .floating-buttons {
+        right: 25px;
+        bottom: 25px;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      .product-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <div class="container header-inner">
+
+      <div>
+        <div class="brand">
+          <div class="brand-icon">🌿</div>
+          <div>
+            <h1>SAHIL MAKHANA STORE</h1>
+            <p>Fresh MAKHANA delivered to your door</p>
+          </div>
+        </div>
+
+        <div class="location">
+          📍 Bilaspur, Himachal Pradesh
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <h2>Healthy snacking, made fresh.</h2>
+        <p>
+          Hygienically roasted makhana made with care at home.
+          Choose your favourite flavour and place your order online.
+        </p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+    <div class="container">
+
+      <div class="section-heading">
+        <div>
+          <h2>Our Makhana</h2>
+          <p>Freshly prepared healthy snacks</p>
+        </div>
+      </div>
+
+      <!-- CATEGORY FILTERS -->
+      <div class="filters" id="filters"></div>
+
+      <!-- PRODUCT GRID -->
+      <div class="product-grid" id="productGrid"></div>
+
+      <!-- SHOP INFORMATION -->
+      <section class="info-section">
+        <h2>Order directly from us</h2>
+        <p>
+          This website collects your order request. No online payment is
+          required. We will contact you on WhatsApp to confirm availability,
+          pricing and delivery.
+        </p>
+
+        <div class="contact-links">
+          <a href="tel:+918699537289">📞 8699537289</a>
+          <a href="mailto:sahilthakur1650@gmail.com">✉️ Email Us</a>
+          <a
+            href="https://wa.me/918699537289"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 WhatsApp
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    <p>
+      <strong>SAHIL MAKHANA STORE</strong> · Bilaspur, Himachal Pradesh
+    </p>
+    <p style="margin-top:5px;">
+      Fresh MAKHANA delivered to your door.
+    </p>
+  </footer>
+
+  <!-- ================= FLOATING BUTTONS ================= -->
+
+  <div class="floating-buttons">
+
+    <a
+      class="whatsapp-btn"
+      href="https://wa.me/918699537289"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+      title="Chat on WhatsApp"
+    >
+      ☎
+    </a>
+
+    <button
+      class="cart-btn"
+      id="openCartBtn"
+      type="button"
+      aria-label="Open shopping cart"
+    >
+      🛒
+      <span class="cart-label">Cart</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+  </div>
+
+  <!-- ================= CART / CHECKOUT MODAL ================= -->
+
+  <div
+    class="modal-overlay"
+    id="modalOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <h2 id="modalTitle">Your Cart</h2>
+
+        <button
+          class="close-btn"
+          id="closeModalBtn"
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+
+      <!-- CART VIEW -->
+
+      <div id="cartView">
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-summary" id="cartSummary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">₹0</strong>
+          </div>
+
+          <div class="summary-row total">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+          </div>
+
+          <button
+            class="checkout-btn"
+            id="checkoutBtn"
+            type="button"
+          >
+            Place Order
+          </button>
+        </div>
+
+      </div>
+
+      <!-- CHECKOUT VIEW -->
+
+      <div class="checkout-section" id="checkoutSection">
+
+        <button
+          class="back-btn"
+          id="backToCartBtn"
+          type="button"
+        >
+          ← Back to cart
+        </button>
+
+        <div class="checkout-note">
+          📦 No online payment is required. Submit your order and
+          <strong>SAHIL MAKHANA STORE</strong> will contact you on WhatsApp
+          to confirm your order.
+        </div>
+
+        <!--
+          Formspree endpoint supplied in the request.
+          JavaScript submits this form using fetch().
+        -->
+        <form
+          id="orderForm"
+          action="https://formspree.io/f/mnpqlwvo"
+          method="POST"
+        >
+
+          <div class="form-group">
+            <label for="customerName">
+              Customer Name *
+            </label>
+            <input
+              type="text"
+              id="customerName"
+              name="customer_name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="customerPhone">
+              Phone Number *
+            </label>
+            <input
+              type="tel"
+              id="customerPhone"
+              name="customer_phone"
+              placeholder="10-digit mobile number"
+              inputmode="tel"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="deliveryAddress">
+              Delivery Address *
+            </label>
+            <textarea
+              id="deliveryAddress"
+              name="delivery_address"
+              placeholder="House number, village/locality, city, pincode..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="instructions">
+              Special Instructions
+            </label>
+            <textarea
+              id="instructions"
+              name="special_instructions"
+              placeholder="Any special delivery instructions? (optional)"
+            ></textarea>
+          </div>
+
+          <!-- These fields are populated automatically by JavaScript -->
+          <input type="hidden" name="_subject" id="emailSubject" />
+          <input type="hidden" name="order_summary" id="orderSummaryField" />
+          <input type="hidden" name="grand_total" id="grandTotalField" />
+          <input type="hidden" name="store_name" value="SAHIL MAKHANA STORE" />
+          <input
+            type="hidden"
+            name="store_phone"
+            value="8699537289"
+          />
+
+          <button
+            class="submit-order-btn"
+            id="submitOrderBtn"
+            type="submit"
+          >
+            Submit Order
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- SUCCESS VIEW -->
+
+      <div class="confirmation" id="confirmationView">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Order placed!</h2>
+
+        <p>
+          SAHIL MAKHANA STORE will contact you on WhatsApp to confirm your
+          order.
+        </p>
+
+        <a
+          class="confirmation-whatsapp"
+          href="https://wa.me/918699537289"
+          target="_blank"
+          rel="noopener"
+        >
+          💬 Message us on WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+    /* =========================================================
+       STORE CONFIGURATION
+       ========================================================= */
+
+    const STORE = {
+      name: "SAHIL MAKHANA STORE",
+      phone: "8699537289",
+      whatsapp: "918699537289",
+      email: "sahilthakur1650@gmail.com",
+      location: "Bilaspur, Himachal Pradesh"
+    };
+
+    /* =========================================================
+       PRODUCTS
+
+       Direct ImgBB CDN URLs are used here rather than the
+       ibb.co webpage URLs.
+       ========================================================= */
+
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Black Salt Makhana",
+        weight: "150g",
+        price: 200,
+        category: "snacks",
+        description: "Hygienically roasted in home kitchen.",
+        image: "https://i.ibb.co/S4dFHYH5/IMG-3987.png",
+        alt: "Black salt roasted makhana 150g"
+      },
+      {
+        id: 2,
+        name: "Desi Ghee Makhana",
+        weight: "150g",
+        price: 280,
+        category: "snacks",
+        description: "Roasted in desi ghee with a delicious flavour.",
+        image: "https://i.ibb.co/XxqXp0N0/IMG-3989.png",
+        alt: "Desi ghee roasted makhana 150g"
+      }
+    ];
+
+    const STORAGE_KEY = "sahil_makhana_cart";
+
+    let cart = loadCart();
+    let activeCategory = "all";
+
+    /* =========================================================
+       DOM ELEMENTS
+       ========================================================= */
+
+    const productGrid = document.getElementById("productGrid");
+    const filters = document.getElementById("filters");
+
+    const modalOverlay = document.getElementById("modalOverlay");
+    const openCartBtn = document.getElementById("openCartBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const cartSubtotal = document.getElementById("cartSubtotal");
+    const cartTotal = document.getElementById("cartTotal");
+    const checkoutBtn = document.getElementById("checkoutBtn");
+    const cartSummary = document.getElementById("cartSummary");
+
+    const cartView = document.getElementById("cartView");
+    const checkoutSection = document.getElementById("checkoutSection");
+    const backToCartBtn = document.getElementById("backToCartBtn");
+    const orderForm = document.getElementById("orderForm");
+    const submitOrderBtn = document.getElementById("submitOrderBtn");
+
+    const confirmationView = document.getElementById("confirmationView");
+
+    /* =========================================================
+       HELPERS
+       ========================================================= */
+
+    function formatPrice(amount) {
+      return new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 0
+      }).format(amount);
+    }
+
+    function loadCart() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : [];
+      } catch (error) {
+        console.error("Could not load cart:", error);
+        return [];
+      }
+    }
+
+    function saveCart() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+    }
+
+    function getProduct(productId) {
+      return PRODUCTS.find(product => product.id === Number(productId));
+    }
+
+    function getCartItemCount() {
+      return cart.reduce((total, item) => total + item.quantity, 0);
+    }
+
+    function getCartTotal() {
+      return cart.reduce((total, item) => {
+        const product = getProduct(item.id);
+        return total + (product ? product.price * item.quantity : 0);
+      }, 0);
+    }
+
+    /* =========================================================
+       CATEGORY FILTERS
+       ========================================================= */
+
+    function renderFilters() {
+      const categories = [
+        "all",
+        ...new Set(PRODUCTS.map(product => product.category))
+      ];
+
+      filters.innerHTML = categories
+        .map(category => {
+          const label =
+            category === "all"
+              ? "All Products"
+              : category.charAt(0).toUpperCase() + category.slice(1);
+
+          return `
+            <button
+              type="button"
+              class="filter-btn ${activeCategory === category ? "active" : ""}"
+              data-category="${category}"
+            >
+              ${label}
+            </button>
+          `;
+        })
+        .join("");
+
+      document.querySelectorAll(".filter-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          activeCategory = button.dataset.category;
+          renderFilters();
+          renderProducts();
+        });
+      });
+    }
+
+    /* =========================================================
+       PRODUCT GRID
+       ========================================================= */
+
+    function renderProducts() {
+      const visibleProducts =
+        activeCategory === "all"
+          ? PRODUCTS
+          : PRODUCTS.filter(
+              product => product.category === activeCategory
+            );
+
+      if (!visibleProducts.length) {
+        productGrid.innerHTML = `
+          <div class="empty-products">
+            No products found in this category.
+          </div>
+        `;
+        return;
+      }
+
+      productGrid.innerHTML = visibleProducts
+        .map(
+          (product, index) => `
+            <article
+              class="product-card"
+              style="animation-delay:${index * 60}ms"
+            >
+              <div class="product-image">
+                <img
+                  src="${product.image}"
+                  alt="${product.alt}"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="product-info">
+
+                <span class="product-category">
+                  ${product.category}
+                </span>
+
+                <h3>
+                  ${product.name} (${product.weight})
+                </h3>
+
+                <p class="product-description">
+                  ${product.description}
+                </p>
+
+                <div class="product-bottom">
+
+                  <span class="price">
+                    ${formatPrice(product.price)}
+                  </span>
+
+                  <button
+                    class="add-btn"
+                    type="button"
+                    data-product-id="${product.id}"
+                  >
+                    Add to Cart
+                  </button>
+
+                </div>
+
+              </div>
+            </article>
+          `
+        )
+        .join("");
+
+      document.querySelectorAll(".add-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          addToCart(Number(button.dataset.productId));
+        });
+      });
+    }
+
+    /* =========================================================
+       CART FUNCTIONS
+       ========================================================= */
+
+    function addToCart(productId) {
+      const existing = cart.find(item => item.id === productId);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: productId,
+          quantity: 1
+        });
+      }
+
+      saveCart();
+      updateCartUI();
+
+      openCartBtn.classList.remove("cart-pop");
+      void openCartBtn.offsetWidth;
+      openCartBtn.classList.add("cart-pop");
+    }
+
+    function changeQuantity(productId, change) {
+      const item = cart.find(item => item.id === productId);
+
+      if (!item) return;
+
+      item.quantity += change;
+
+      if (item.quantity <= 0) {
+        cart = cart.filter(item => item.id !== productId);
+      }
+
+      saveCart();
+      updateCartUI();
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(item => item.id !== productId);
+
+      saveCart();
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      cartCount.textContent = getCartItemCount();
+
+      if (!cart.length) {
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            <div class="empty-cart-icon">🛒</div>
+            <strong>Your cart is empty</strong>
+            <p style="margin-top:5px;">
+              Add some delicious makhana to get started.
+            </p>
+          </div>
+        `;
+
+        cartSummary.style.display = "none";
+        return;
+      }
+
+      cartSummary.style.display = "block";
+
+      cartItems.innerHTML = cart
+        .map(item => {
+          const product = getProduct(item.id);
+
+          if (!product) return "";
+
+          const subtotal = product.price * item.quantity;
+
+          return `
+            <div class="cart-item">
+
+              <img
+                class="cart-item-image"
+                src="${product.image}"
+                alt="${product.alt}"
+                loading="lazy"
+              />
+
+              <div>
+                <div class="cart-item-name">
+                  ${product.name} (${product.weight})
+                </div>
+
+                <div class="cart-item-price">
+                  ${formatPrice(product.price)} each
+                </div>
+
+                <div class="quantity-controls">
+
+                  <button
+                    type="button"
+                    aria-label="Decrease quantity"
+                    data-action="decrease"
+                    data-id="${product.id}"
+                  >
+                    −
+                  </button>
+
+                  <span class="quantity">
+                    ${item.quantity}
+                  </span>
+
+                  <button
+                    type="button"
+                    aria-label="Increase quantity"
+                    data-action="increase"
+                    data-id="${product.id}"
+                  >
+                    +
+                  </button>
+
+                </div>
+              </div>
+
+              <div class="cart-item-right">
+
+                <div class="item-subtotal">
+                  ${formatPrice(subtotal)}
+                </div>
+
+                <button
+                  type="button"
+                  class="remove-btn"
+                  data-action="remove"
+                  data-id="${product.id}"
+                >
+                  Remove
+                </button>
+
+              </div>
+
+            </div>
+          `;
+        })
+        .join("");
+
+      cartSubtotal.textContent = formatPrice(getCartTotal());
+      cartTotal.textContent = formatPrice(getCartTotal());
+
+      document.querySelectorAll("[data-action]").forEach(button => {
+        const id = Number(button.dataset.id);
+        const action = button.dataset.action;
+
+        button.addEventListener("click", () => {
+          if (action === "increase") {
+            changeQuantity(id, 1);
+          }
+
+          if (action === "decrease") {
+            changeQuantity(id, -1);
+          }
+
+          if (action === "remove") {
+            removeFromCart(id);
+          }
+        });
+      });
+    }
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    function openModal() {
+      modalOverlay.classList.add("show");
+      document.body.style.overflow = "hidden";
+
+      showCartView();
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function showCartView() {
+      cartView.style.display = "block";
+      checkoutSection.classList.remove("show");
+      confirmationView.classList.remove("show");
+
+      document.getElementById("modalTitle").textContent = "Your Cart";
+
+      updateCartUI();
+    }
+
+    function showCheckoutView() {
+      if (!cart.length) {
+        alert("Please add at least one product to your cart.");
+        return;
+      }
+
+      cartView.style.display = "none";
+      checkoutSection.classList.add("show");
+      confirmationView.classList.remove("show");
+
+      document.getElementById("modalTitle").textContent = "Place Your Order";
+    }
+
+    /* =========================================================
+       BUILD READABLE ORDER SUMMARY
+       ========================================================= */
+
+    function buildOrderSummary(customerDetails = {}) {
+      const lines = [];
+
+      lines.push("================================");
+      lines.push(STORE.name);
+      lines.push("ONLINE ORDER");
+      lines.push("================================");
+      lines.push("");
+
+      lines.push("CUSTOMER DETAILS");
+      lines.push("--------------------------------");
+      lines.push(`Name: ${customerDetails.name || ""}`);
+      lines.push(`Phone: ${customerDetails.phone || ""}`);
+      lines.push(`Address: ${customerDetails.address || ""}`);
+      lines.push(
+        `Special Instructions: ${customerDetails.instructions || "None"}`
+      );
+      lines.push("");
+
+      lines.push("ORDER ITEMS");
+      lines.push("--------------------------------");
+
+      cart.forEach((item, index) => {
+        const product = getProduct(item.id);
+
+        if (!product) return;
+
+        const subtotal = product.price * item.quantity;
+
+        lines.push(
+          `${index + 1}. ${product.name} (${product.weight})`
+        );
+        lines.push(
+          `   Quantity: ${item.quantity}`
+        );
+        lines.push(
+          `   Price: ${formatPrice(product.price)} each`
+        );
+        lines.push(
+          `   Subtotal: ${formatPrice(subtotal)}`
+        );
+        lines.push("");
+      });
+
+      lines.push("--------------------------------");
+      lines.push(`GRAND TOTAL: ${formatPrice(getCartTotal())}`);
+      lines.push("--------------------------------");
+      lines.push("");
+      lines.push(`Store Phone: ${STORE.phone}`);
+      lines.push(`Store Email: ${STORE.email}`);
+      lines.push(`Location: ${STORE.location}`);
+      lines.push("");
+      lines.push(
+        "Payment: No online payment. Store will contact customer to confirm."
+      );
+
+      return lines.join("\n");
+    }
+
+    /* =========================================================
+       CHECKOUT FORM
+       ========================================================= */
+
+    orderForm.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      if (!cart.length) {
+        alert("Your cart is empty.");
+        return;
+      }
+
+      const name = document
+        .getElementById("customerName")
+        .value.trim();
+
+      const phone = document
+        .getElementById("customerPhone")
+        .value.trim();
+
+      const address = document
+        .getElementById("deliveryAddress")
+        .value.trim();
+
+      const instructions = document
+        .getElementById("instructions")
+        .value.trim();
+
+      if (!name || !phone || !address) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const orderSummary = buildOrderSummary({
+        name,
+        phone,
+        address,
+        instructions
+      });
+
+      document.getElementById("emailSubject").value =
+        `New Order - ${STORE.name} - ${name}`;
+
+      document.getElementById("orderSummaryField").value =
+        orderSummary;
+
+      document.getElementById("grandTotalField").value =
+        formatPrice(getCartTotal());
+
+      submitOrderBtn.disabled = true;
+      submitOrderBtn.textContent = "Sending Order...";
+
+      try {
+        const formData = new FormData(orderForm);
+
+        /*
+          Formspree returns JSON when Accept is set to
+          application/json.
+        */
+        const response = await fetch(orderForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error("Order submission failed.");
+        }
+
+        /*
+          Clear local cart only after successful submission.
+        */
+        cart = [];
+        saveCart();
+        updateCartUI();
+
+        orderForm.reset();
+
+        cartView.style.display = "none";
+        checkoutSection.classList.remove("show");
+        confirmationView.classList.add("show");
+
+        document.getElementById("modalTitle").textContent =
+          "Order Received";
+
+      } catch (error) {
+        console.error(error);
+
+        alert(
+          "We couldn't send your order right now. " +
+          "Please try again or contact us directly on WhatsApp."
+        );
+
+      } finally {
+        submitOrderBtn.disabled = false;
+        submitOrderBtn.textContent = "Submit Order";
+      }
+    });
+
+    /* =========================================================
+       EVENT LISTENERS
+       ========================================================= */
+
+    openCartBtn.addEventListener("click", openModal);
+
+    closeModalBtn.addEventListener("click", closeModal);
+
+    checkoutBtn.addEventListener("click", showCheckoutView);
+
+    backToCartBtn.addEventListener("click", showCartView);
+
+    modalOverlay.addEventListener("click", event => {
+      if (event.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    /* =========================================================
+       INITIALIZE WEBSITE
+       ========================================================= */
+
+    renderFilters();
+    renderProducts();
+    updateCartUI();
+  </script>
+
+</body>
+</html>
